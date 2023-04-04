@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: msvc-cursos
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: msvc-cursos
+  template:
+    metadata:
+      labels:
+        app: msvc-cursos
+    spec:
+      containers:
+        - name: cursos
+          image: moisdocker1/cursos:latest
+          ports:
+            - containerPort: 8002
+          env:
+            - name: PORT
+              value: "8002"
+            - name: DB_HOST
+              value: "postgres14:5432"
+            - name: DB_DATABASE
+              value: msvc_cursos
+            - name: DB_USERNAME
+              value: postgres
+            - name: DB_PASSWORD
+              value: Victorias1
+            - name: USUARIOS_URL
+              value: "msvc-usuarios:8001"
