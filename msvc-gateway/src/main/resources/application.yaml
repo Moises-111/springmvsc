@@ -1,0 +1,16 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: msvc-cursos
+          uri: lb://msvc-cursos
+          predicates:
+            - Path=/api/cursos/**
+          filters:
+            - StripPrefix=2
+        - id: msvc-usuarios
+            uri: lb://msvc-usuarios
+            predicates:
+              - Path=/api/usuarios/**
+            filters:
+              - StripPrefix=2
