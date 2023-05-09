@@ -9,8 +9,8 @@ spring:
           filters:
             - StripPrefix=2
         - id: msvc-usuarios
-            uri: lb://msvc-usuarios
-            predicates:
-              - Path=/api/usuarios/**
-            filters:
-              - StripPrefix=2
+          uri: lb://msvc-usuarios
+          predicates:
+            - Path=/api/usuarios/**
+          filters:
+            - StripPrefix=2
